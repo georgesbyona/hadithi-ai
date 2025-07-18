@@ -1,0 +1,9 @@
+export 'daytale/day_tale_page.dart';
+export 'home/home_page.dart';
+export 'leader_board/leader_board_page.dart';
+export 'main_pages/main_pages.dart';
+export 'riddles_game/riddles_game_page.dart';
+export 'riddles/riddles_page.dart';
+export 'settings/settings_page.dart';
+export 'tales/tales_page.dart';
+export 'tales/page/tale_details.dart';

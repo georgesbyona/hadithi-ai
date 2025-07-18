@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "questions": {
+            "type": "array",
+            "description": "5 questions pour un niveau, chacune avec un numéro et le texte de la question.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "num": {
+                        "type": "integer",
+                        "description": "Le numéro de la question."
+                    },
+                    "question": {
+                        "type": "string",
+                        "description": "Le texte de la question."
+                    }
+                },
+                "required": [
+                    "num",
+                    "question"
+                ]
+            },
+            "maxItems": 5,
+            "minItems": 1
+        },
+        "answers": {
+            "type": "array",
+            "description": "5 ensembles de réponses, un pour chaque question. Chaque ensemble contient 4 réponses possibles, avec une indication de la bonne réponse.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "num": {
+                        "type": "integer",
+                        "description": "Le numéro de la question à laquelle ces réponses correspondent."
+                    },
+                    "answer": {
+                        "type": "array",
+                        "description": "4 réponses pour une question. Inclut une valeur 'true' pour la bonne réponse.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "is_correct": {
+                                    "type": "boolean",
+                                    "description": "Indique si cette réponse est la bonne (true) ou non (false)."
+                                },
+                                "content": {
+                                    "type": "string",
+                                    "description": "Le contenu de la réponse."
+                                }
+                            },
+                            "required": [
+                                "is_correct",
+                                "content"
+                            ]
+                        },
+                        "maxItems": 4,
+                        "minItems": 1
+                    }
+                },
+                "required": [
+                    "num",
+                    "answer"
+                ]
+            },
+            "maxItems": 5,
+            "minItems": 1
+        },
+        "helps": {
+            "type": "array",
+            "description": "5 phrases d'aide ou d'indices pour chaque question.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "num": {
+                        "type": "integer",
+                        "description": "Le numéro de la question à laquelle cette aide correspond."
+                    },
+                    "help": {
+                        "type": "string",
+                        "description": "Le texte de l'aide ou de l'indice."
+                    }
+                },
+                "required": [
+                    "num",
+                    "help"
+                ]
+            },
+            "maxItems": 5,
+            "minItems": 1
+        }
+    },
+    "required": [
+        "questions",
+        "answers",
+        "helps"
+    ]
+}

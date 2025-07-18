@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "292237971535",
+    "project_id": "hadithi-ai",
+    "storage_bucket": "hadithi-ai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292237971535:android:ff43ee52b7495633a91a3a",
+        "android_client_info": {
+          "package_name": "com.losingtech.hadithiai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNhC82T7fa30ro-WbCI56FRs0u7Se3MhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
