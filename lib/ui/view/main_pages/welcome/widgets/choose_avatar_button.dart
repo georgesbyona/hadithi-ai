@@ -15,8 +15,7 @@ class ChooseAvatarButton extends StatelessWidget {
       child: FilledButton(
         onPressed: onPressed,
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 13),
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           child: Text(
             "Start",
             style: textTheme.headlineSmall!.copyWith(

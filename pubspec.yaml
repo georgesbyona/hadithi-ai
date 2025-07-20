@@ -1,5 +1,7 @@
 name: hadithi_ai
-description: "A Flutter Tale Teller and Riddle Game powered by Gemini."
+description: "A storytelling and puzzle game for African families created with
+  Flutter and Gemini via Firebase with the aim of strengthening education,
+  entertainment and African culture in families and especially for children."
 publish_to: "none"
 version: 0.1.0
 
@@ -18,6 +20,7 @@ dependencies:
   go_router: ^16.0.0
   google_fonts: ^6.2.1
   hugeicons: ^0.0.11
+  loading_indicator: ^3.1.1
   popover: ^0.3.1
   provider: ^6.1.5
   shared_preferences: ^2.5.3

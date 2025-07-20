@@ -11,10 +11,13 @@ class AboutPage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+      ),
       body: SingleChildScrollView(
         primary: true,
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

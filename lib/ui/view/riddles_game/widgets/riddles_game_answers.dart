@@ -19,6 +19,10 @@ class RiddlesGameAnswers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final genRiddleModel = riddleProvider.riddleModel?.genRiddleModel;
+    final nextRiddle =
+        riddleProvider.currentPageIndex + 1 < RiddlesData.riddlesData.length
+        ? RiddlesData.riddlesData[riddleProvider.currentPageIndex + 1]
+        : RiddlesData.riddlesData[20];
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
@@ -37,6 +41,7 @@ class RiddlesGameAnswers extends StatelessWidget {
           final answerIndex = riddleProvider.shuffledIndexes[index];
           final answer = genRiddleModel!.answers[answerIndex]["answer"];
           final isCorrect = genRiddleModel.answers[answerIndex]["is_correct"];
+
           return FilledButton.tonal(
             style: riddleProvider.tapedIndex == index
                 ? isCorrect
@@ -79,28 +84,24 @@ class RiddlesGameAnswers extends StatelessWidget {
                       if (context.mounted) context.pop();
                     }
                     if (result == "retry") {
-                      riddleProvider.getTheLevelRiddle();
+                      riddleProvider.getTheLevelRiddle(
+                        riddle: RiddlesData
+                            .riddlesData[riddleProvider.currentPageIndex],
+                      );
                       riddleProvider.initializingChrono();
                     }
                     if (result == "next") {
+                      riddleProvider.getTheLevelRiddle(riddle: nextRiddle);
                       pageController.nextPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeInOutBack,
                       );
-                      riddleProvider.getTheLevelRiddle(
-                        riddle: RiddlesData.riddlesData.where((e) {
-                          final under20 =
-                              riddleProvider.riddleModel!.level < 20;
-                          return under20
-                              ? e.level == riddleProvider.riddleModel!.level + 1
-                              : e.level == 20;
-                        }).first,
-                      );
+                      riddleProvider.onPageChanged();
                     }
                   }
                 : null,
             child: riddleProvider.isLoading
-                ? CircularProgressIndicator(strokeWidth: 1)
+                ? Center(child: CircularProgressIndicator(strokeWidth: 1))
                 : Text(
                     "$answer",
                     style: textTheme.bodyLarge!.copyWith(

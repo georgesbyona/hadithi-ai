@@ -60,9 +60,6 @@ class GeneralProvider with ChangeNotifier {
       currentUser.score[level] = score;
       currentUser.score[0] = _userScore;
       if (pref != null) pref!.setInt("userScore", _userScore);
-      debugPrint(
-        "Valeur level : $level, valeur score : $score, valeur du map ${currentUser.score}",
-      );
     }
   }
 

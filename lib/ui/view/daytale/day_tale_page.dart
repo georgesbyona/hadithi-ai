@@ -53,9 +53,14 @@ class DayTalePage extends StatelessWidget {
             dayTaleProvider: dayTaleProvider,
             dayTale: dayTale.first,
           ),
-          DayTaleBodyView(dayTaleProvider: dayTaleProvider),
-          Divider(),
-          DayTaleBottomView(dayTaleProvider: dayTaleProvider),
+          Column(
+            spacing: 16,
+            children: [
+              DayTaleBodyView(dayTaleProvider: dayTaleProvider),
+              Divider(),
+              DayTaleBottomView(dayTaleProvider: dayTaleProvider),
+            ],
+          ),
         ],
       ),
       persistentFooterButtons: [const MiFooterView()],

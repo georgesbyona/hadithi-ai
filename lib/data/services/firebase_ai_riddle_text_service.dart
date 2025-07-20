@@ -73,7 +73,6 @@ class FirebaseAiRiddleTextService {
       final genRiddleModel = GenRiddleModel.fromJson(
         jsonDecode(response.text!),
       );
-      debugPrint("${jsonDecode(response.text!)}");
       return genRiddleModel;
     } catch (e) {
       debugPrint('Error generating text: $e');

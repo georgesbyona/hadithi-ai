@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
-    "description": "A Flutter Tale Teller and Riddle Game powered by Gemini.",
+    "description": "A storytelling and puzzle game for African families created with Flutter and Gemini via Firebase with the aim of strengthening education, entertainment and African culture in families and especially for children.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

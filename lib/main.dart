@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'firebase_options.dart';
+
 import 'domain/domain.dart';
 import 'ui/ui.dart';
 
@@ -30,7 +31,7 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => DayTaleProvider()
-            // ..generateDaysTale()
+            ..generateDaysTale()
             ..isUserConnected(),
         ),
         ChangeNotifierProvider(create: (context) => TalesProvider()),
@@ -51,8 +52,8 @@ class HadithiAI extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = ThemeUtils.createTextTheme(
       context,
-      "Comic Neue",
-      "Protest Revolution",
+      "Indie Flower",
+      "Bubblegum Sans",
     );
 
     final theme = MaterialTheme(textTheme);

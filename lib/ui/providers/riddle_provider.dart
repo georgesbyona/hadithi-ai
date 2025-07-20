@@ -11,6 +11,13 @@ class RiddleProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  int currentPageIndex = 0;
+
+  void onPageChanged() {
+    currentPageIndex < 20 ? currentPageIndex++ : currentPageIndex = 19;
+    notifyListeners();
+  }
+
   // Shuffles the indexes to display the answers in a random order
   List<int> shuffledIndexes = [];
 
@@ -111,26 +118,33 @@ class RiddleProvider extends ChangeNotifier {
   Future<void> getTheLevelRiddle({RiddleModel? riddle}) async {
     resetVarValue();
     shuffledIndexes.clear();
-    disabledIndexes.clear();
     changeIsLoadingState();
-    canShuffledIndexes();
-    final genRiddleModel = riddle == null
-        ? await FirebaseAiRiddleTextService.generateTalesText(
+    if (riddle == null) {
+      final genRiddleModel =
+          await FirebaseAiRiddleTextService.generateTalesText(
             RiddlesData.riddlesData.first.levelTitle,
             RiddlesData.riddlesData.first.levelDesc,
-          )
-        : await FirebaseAiRiddleTextService.generateTalesText(
+          );
+      riddleModel = RiddleModel(
+        level: RiddlesData.riddlesData.first.level,
+        levelTitle: RiddlesData.riddlesData.first.levelTitle,
+        levelDesc: RiddlesData.riddlesData.first.levelTitle,
+        genRiddleModel: genRiddleModel,
+      );
+    } else {
+      final genRiddleModel =
+          await FirebaseAiRiddleTextService.generateTalesText(
             riddle.levelTitle,
             riddle.levelDesc,
           );
-    riddleModel =
-        riddle ??
-        RiddleModel(
-          level: RiddlesData.riddlesData.first.level,
-          levelTitle: RiddlesData.riddlesData.first.levelTitle,
-          levelDesc: RiddlesData.riddlesData.first.levelTitle,
-          genRiddleModel: genRiddleModel,
-        );
+      riddleModel = RiddleModel(
+        level: riddle.level,
+        levelTitle: riddle.levelTitle,
+        levelDesc: riddle.levelTitle,
+        genRiddleModel: genRiddleModel,
+      );
+    }
+    canShuffledIndexes();
     notifyListeners();
     changeIsLoadingState();
   }
@@ -149,6 +163,7 @@ class RiddleProvider extends ChangeNotifier {
   void resetVarValue() {
     tapedIndex = 5;
     isCorrect = false;
+    disabledIndexes.clear();
     notifyListeners();
   }
 }

@@ -49,12 +49,15 @@ class DayTaleHeadView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: () {
-                    context.read<TalesProvider>().makeItFav(dayTale);
+                Consumer<TalesProvider>(
+                  builder: (context, taleProvider, child) {
+                    return IconButton(
+                      onPressed: () => taleProvider.makeItFav(dayTale),
+                      icon: MiIcons.like(context, dayTale.favorite),
+                    );
                   },
-                  icon: MiIcons.like(context, dayTale.favorite),
                 ),
+
                 Text(
                   dayTale.rating.toString(),
                   style: textTheme.bodyMedium!.copyWith(

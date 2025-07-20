@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hadithi_ai/data/data.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets/riddles_game_question_container.dart';
@@ -76,15 +77,33 @@ class _RiddlesGamePageState extends State<RiddlesGamePage> {
             ],
           ),
           body: riddleProvider.isLoading
-              ? CircularProgressIndicator()
+              ? Center(
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: LoadingIndicator(
+                      indicatorType: Indicator.lineScalePulseOut,
+                      colors: [
+                        colorScheme.primaryContainer,
+                        colorScheme.primary,
+                        colorScheme.primaryContainer,
+                        colorScheme.primary,
+                        colorScheme.primaryContainer,
+                      ],
+                      strokeWidth: 2,
+                    ),
+                  ),
+                )
               : Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: PageView.builder(
+                    scrollDirection: Axis.horizontal,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: RiddlesData.riddlesData.length,
                     controller: _pageController,
-                    onPageChanged: (value) {},
-                    itemBuilder: (context, index) {
-                      final currentRiddle = RiddlesData.riddlesData[index];
+                    itemBuilder: (context, _) {
+                      final currentRiddle = RiddlesData
+                          .riddlesData[riddleProvider.currentPageIndex];
                       return Column(
                         spacing: 8,
                         children: [
@@ -96,8 +115,10 @@ class _RiddlesGamePageState extends State<RiddlesGamePage> {
                             ),
                           ),
                           RiddlesGameChrono(riddleProvider: riddleProvider),
-                          RiddlesGameQuestionContainer(
-                            riddleProvider: riddleProvider,
+                          GestureDetector(
+                            child: RiddlesGameQuestionContainer(
+                              riddleProvider: riddleProvider,
+                            ),
                           ),
                           RiddlesGameAnswers(
                             riddleProvider: riddleProvider,

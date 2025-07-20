@@ -64,23 +64,29 @@ class _TalesPageState extends State<TalesPage> {
                                   tale.day == localTale.day,
                             )
                             .toList();
-                        if (selectedTale.isNotEmpty) {
-                          debugPrint(
-                            "Selected Tale: ${selectedTale.first.title} ${selectedTale.first.day}",
-                          );
+                        final canOpen =
+                            selectedTale.first.month ==
+                                DateFormatterUtil.intToLongMonth(
+                                  DateTime.now().month,
+                                ) &&
+                            selectedTale.first.day == DateTime.now().day;
+                        if (canOpen) {
                           context.goNamed(
                             RoutesNames.taleDetails,
                             extra: selectedTale.first,
                           );
                         } else {
-                          miSnackBar(context, text: "No details!");
+                          miSnackBar(
+                            context,
+                            text: "No details!",
+                            horizontalMargin: 145,
+                          );
                         }
                       },
                       child: Container(
-                        padding: const EdgeInsets.only(
-                          top: 12,
-                          bottom: 12,
-                          right: 8,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 12,
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
