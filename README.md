@@ -11,10 +11,10 @@ If you want to run the project on your PC, then follow these steps:
 1. Make sure that the [flutter](https://flutter.dev) version `3+` is installed on your PC with all the necessary tools for mobile and/or web development.
 2. Make sure that [git](https://git-scm.com/) is installed on your PC. To check it, run `git` in your terminal
 3. Now, you can clone this project by running the following command in a specific folder where you want to put this project:
-   ```git command
-   git clone https://github.com/glosings0n/hadithi-ai
    
-5. After that, open the **hadithi-ai** in an IDE ***- VSCode or Android Studio -*** to start enjoying our app!
+   ```
+   git clone https://github.com/glosings0n/hadithi-ai
+4. After that, open the **hadithi-ai** in an IDE ***- VSCode or Android Studio -*** to start enjoying our app!
    1. First of all, you should be sure that all dependencies are up-to-date. To check that, run these commands one by one:
       + `flutter clean`
       + `flutter pub get`
