@@ -19,9 +19,11 @@ If you want to run the project on your PC, then follow these steps:
       + `flutter pub upgrade`
       + `flutter pub outdated` and check if all dependencies are up-to-date in the terminal message.
    2. Connect your Android device or your Android emulator, then compile the project by running: `flutter run`
-   3. If you get any issues, feel free to mail us at [georgesbyona@gmail.com](mailto:georgesbyona@gmail.com)
+   3. If you get any issues, feel free to mail us at [georgesbyona@gmail.com](https://mailto:georgesbyona@gmail.com)
   
 ### Enjoy our App!🎉
+
+#### [Video Demo](https://youtube.com/shorts/qFBfDerjzr0?feature=share)
 
 ---
 
