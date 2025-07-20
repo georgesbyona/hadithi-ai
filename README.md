@@ -1,6 +1,6 @@
 # HadithiAI 📚🤖
 
-![HadithiAI Logo](https://via.placeholder.com/150)
+![HadithiAI Logo](https://github.com/glosings0n/hadithi-ai/blob/main/assets/images/logo.png)
 
 A storytelling and puzzle game for African families created with Flutter and Gemini via Firebase to strengthen education, entertainment, and African culture in families, especially for children.
 
