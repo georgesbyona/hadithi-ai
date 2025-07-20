@@ -16,10 +16,13 @@ If you want to run the project on your PC, then follow these steps:
    git clone https://github.com/glosings0n/hadithi-ai
 4. After that, open the **hadithi-ai** in an IDE ***- VSCode or Android Studio -*** to start enjoying our app!
    1. First of all, you should be sure that all dependencies are up-to-date. To check that, run these commands one by one:
-      + `flutter clean`
-      + `flutter pub get`
-      + `flutter pub upgrade`
-      + `flutter pub outdated` and check if all dependencies are up-to-date in the terminal message.
+      + ```
+        flutter clean
+        flutter pub get
+        flutter pub upgrade
+        flutter pub outdated
+
+      + and check if all dependencies are up-to-date in the terminal message.
    2. Connect your Android device or your Android emulator, then compile the project by running: `flutter run`
    3. If you get any issues, feel free to mail us at [georgesbyona@gmail.com](https://mailto:georgesbyona@gmail.com)
   
